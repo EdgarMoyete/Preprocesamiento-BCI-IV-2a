@@ -5,7 +5,7 @@
 clear
 clc
 
-load('MotorImageryA01T.mat') %cambiar el 01 por el numero de sujeto
+load('MotorImageryA01E.mat') %cambiar el 01 por el numero de sujeto y revisar si es T o E
 
 signals_limpias = zeros(288000, 22);
 
@@ -21,4 +21,4 @@ for i=1:22
         signals_limpias(:, i) = signals(:, i);
     end
 end
-%save('LimpiosA01T.mat','signals_limpias'); %cambiar el 01 por el numero de sujeto
+%save('LimpiosA01E.mat','signals_limpias'); %cambiar el 01 por el numero de sujeto y revisar si es T o E

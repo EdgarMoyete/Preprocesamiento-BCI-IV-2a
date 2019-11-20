@@ -1,5 +1,5 @@
 %Edgar Moises Hernandez-Gonzalez
-%16/10/19-05/11/19
+%16/10/19-19/11/19
 %Acomodar los datos para que queden concatenados los canales
 %Input shape 288000x22
 %Output shape 288*22000
@@ -7,7 +7,7 @@
 clear
 clc
 
-load('FiltradasA01T.mat') %cambiar el 01 por el numero de sujeto
+load('FiltradasA01E.mat') %cambiar el 01 por el numero de sujeto y revisar si es T o E
 
 nuevo = zeros(288,22000);
 contador2 = 1;
@@ -21,4 +21,5 @@ for i=1:288
     end
     contador2 = contador2 + 1000;
 end
-%csvwrite('MI-EEG-A01T.csv',nuevo); %cambiar el 01 por el numero de sujeto
+%csvwrite('MI-EEG-A01E.csv',nuevo); %cambiar el 01 por el numero de sujeto y revisar si es T o E
+save('MI-EEG-A01E.mat','nuevo'); %cambiar el 01 por el numero de sujeto y revisar si es T o E

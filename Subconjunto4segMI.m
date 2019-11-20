@@ -8,7 +8,7 @@ clear
 clc
 
 %cargar los datos
-[s, h] = sload('A01T.gdf'); %cambiar el 01 por el numero de sujeto
+[s, h] = sload('A01E.gdf'); %cambiar el 01 por el numero de sujeto y revisar si es T o E
 %Asi para que no existan NaN (no sirve)
 %[s, h] = sload('A01T.gdf', 0, 'OVERFLOWDETECTION:OFF'); %cambiar el 01 por el numero de sujeto
 
@@ -22,4 +22,4 @@ for columna=1:22 %22 canales
         contador = contador + 1000;
     end
 end
-%save('MotorImageryA01T.mat','signals'); %cambiar el 01 por el numero de sujeto
+%save('MotorImageryA01E.mat','signals'); %cambiar el 01 por el numero de sujeto y revisar si es T o E

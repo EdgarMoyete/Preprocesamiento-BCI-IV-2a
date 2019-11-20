@@ -3,4 +3,8 @@ A*.gdf
 MotorImageryA*.mat
 LimpiosA*.mat
 Filtradas*.mat
-MI-EEG-A*.csv
+MI-EEG*.csv
+MI-EEG*.mat
+Filtro32Hz.m
+ReemplazarNaNPruebas.m
+PruebasFFT.m
