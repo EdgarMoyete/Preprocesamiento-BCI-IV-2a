@@ -46,9 +46,31 @@ Output shape: 288x22000
 
 Las filas son el numero de muestras (288) y las columnas son los 4 seg de los 22 canales concatenados (22000)
 
+### RWE_DWT_Multinivel.m
+RWE con DWT de dos niveles de descompisicion usando DWT-db4
+
+Input: (MI-EEG-AxxX.mat)
+
+Output: (MI-EEG-RWE-A01E.csv)
+
+Input shape: 288x22000
+
+Output shape: 288x66
+
+### Alfa_DWT_C3_C4.m
+Alfa de C3 y C4 con DWT de dos niveles de descomposicion
+
+Input: (MI-EEG-AxxX.mat)
+
+Output: (MI-EEG-Alfa-AxxX.csv)
+
+Input shape: 288x22000
+
+Output shape: 288x510
+
 #### Archivos que no se ocupan
 Filtro32Hz.m
 
-ReemplazarNaN.m
+ReemplazarNaNPruebas.m
 
 PruebasFFT.m

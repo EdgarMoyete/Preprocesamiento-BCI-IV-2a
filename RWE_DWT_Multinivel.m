@@ -1,5 +1,5 @@
 %Edgar Moises Hernandez-Gonzalez
-%19/11/19
+%19/11/19-27/11/19
 %RWE con DWT de dos niveles de descompisicion usando DWT-db4
 
 clear
@@ -20,17 +20,18 @@ for i=1:f
         indiceInicio = indiceInicio + 1000;
         indiceFin = indiceFin + 1000;
     end
-    todoRWE = [todoRWE; muestraRWE]; %se van concatenando las muestras filtradas y la etiqueta
+    todoRWE = [todoRWE; muestraRWE]; %se van concatenando las muestras filtradas
     
     if mod(i,100)==0 %imprimir el contador cada 100 iteraciones para observar el avance
         disp(i);
     end
     
 end
-csvwrite('MI-EEG-RWE-5-A01E.csv',todoRWE);
+
+csvwrite('MI-EEG-RWE-A01E.csv',todoRWE);
 
 function rwe = rwe_dwt(senal)
-	[C,L] = wavedec(senal,5,'db4');
+	[C,L] = wavedec(senal,2,'db4');
 	[Ea,Ed] = wenergy(C,L);
     Et = Ea + (sum(Ed));
     RWE_1 = Ea/Et;
