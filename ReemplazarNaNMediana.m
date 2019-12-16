@@ -1,11 +1,11 @@
 %Edgar Moises Hernandez-Gonzalez
-%05/11/19
+%05/11/19-01/12/19
 %Reemplazar NaN por mediana de todo el canal
 
 clear
 clc
 
-load('MotorImageryA01E.mat') %cambiar el 01 por el numero de sujeto y revisar si es T o E
+load('MotorImageryA09E.mat') %cambiar el 01 por el numero de sujeto y revisar si es T o E
 
 signals_limpias = zeros(288000, 22);
 
@@ -21,4 +21,4 @@ for i=1:22
         signals_limpias(:, i) = signals(:, i);
     end
 end
-%save('LimpiosA01E.mat','signals_limpias'); %cambiar el 01 por el numero de sujeto y revisar si es T o E
+save('LimpiosA09E.mat','signals_limpias'); %cambiar el 01 por el numero de sujeto y revisar si es T o E

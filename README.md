@@ -11,6 +11,8 @@ Input Shape: todox25
 
 Output Shape: 288000x22
 
+Se necesita ejecutar biosig_installer.m
+
 ### ReemplazarNaNMediana.m
 Input: (MotorImageryAxxX.mat)
 
@@ -67,6 +69,17 @@ Output: (MI-EEG-Alfa-AxxX.csv)
 Input shape: 288x22000
 
 Output shape: 288x510
+
+### DWTCoeficientes.m
+Obtener los coeficientes de aproximacion y de detalle con DWT-db4 con 2 niveles de descomposicion
+
+Input: (MI-EEG-AxxX.mat)
+
+Output: (MI-EEG-DWT-Coef-AxxX.csv)
+
+Input shape: 288x22000
+
+Output shape: 288x22286
 
 #### Archivos que no se ocupan
 Filtro32Hz.m
