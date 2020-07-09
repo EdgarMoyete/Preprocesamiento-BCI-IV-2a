@@ -5,6 +5,9 @@ LimpiosA*.mat
 Filtradas*.mat
 MI-EEG*.csv
 MI-EEG*.mat
+Ventaneo*.csv
 Filtro32Hz.m
 ReemplazarNaNPruebas.m
 PruebasFFT.m
+Etiquetas*.csv
+CAR*.mat

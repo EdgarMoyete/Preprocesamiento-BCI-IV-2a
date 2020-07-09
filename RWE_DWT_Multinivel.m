@@ -1,15 +1,15 @@
 %Edgar Moises Hernandez-Gonzalez
-%19/11/19-01/12/19
+%19/11/19-29/04/20
 %RWE con DWT de dos niveles de descompisicion usando DWT-db4
 
 clear
 clc
 
-load('MI-EEG-A09E.mat');
-[f, c] = size(nuevo);
+load('MI-EEG-ID-A01E.mat');
+[f, c] = size(binarios);
 todoRWE = []; %aqui guardaremos las señales filtradas
 for i=1:f
-    muestra = nuevo(i,:); %selecciona la fila i (muestra num i)
+    muestra = binarios(i,:); %selecciona la fila i (muestra num i)
     muestraRWE = [];
     indiceInicio = 1;
 	indiceFin = 1000;
@@ -26,7 +26,7 @@ for i=1:f
     end
 end
 
-csvwrite('MI-EEG-RWE-A09E.csv',todoRWE);
+csvwrite('MI-EEG-ID-RWE-A01E.csv',todoRWE);
 
 function rwe = rwe_dwt(senal)
 	[C,L] = wavedec(senal,2,'db4');

@@ -1,8 +1,10 @@
 %Edgar Moises Hernandez-Gonzalez
 %16/10/19-01/12/19
 %Subconjuntos de datos para BCI-IV-2a
-%Obtenemos los 4seg se MI del segundo 2 al 6
+%Obtenemos los 4seg de MI del segundo 2 al 6
 %Fs=250Hz, por lo tanto en 4seg son 1000 datos
+%Input Shape: todox25
+%Output Shape: 288000x22
 
 clear
 clc
