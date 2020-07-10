@@ -2,7 +2,7 @@ Datos
 A*.gdf
 MotorImageryA*.mat
 LimpiosA*.mat
-Filtradas*.mat
+Filtra*.mat
 MI-EEG*.csv
 MI-EEG*.mat
 Ventaneo*.csv
@@ -11,3 +11,4 @@ ReemplazarNaNPruebas.m
 PruebasFFT.m
 Etiquetas*.csv
 CAR*.mat
+Laplace*.mat

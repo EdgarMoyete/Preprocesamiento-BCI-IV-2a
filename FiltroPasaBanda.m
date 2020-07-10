@@ -1,5 +1,5 @@
 %Edgar Moises Hernandez-Gonzalez
-%23/10/19-28/06/20
+%23/10/19-09/07/20
 %Filtro pasa banda de 8-30hz
 %Se filtraran todas las señales con un solo comando
 
@@ -7,13 +7,13 @@ clear
 clc
 
 %cambiar el 01 por el numero de sujeto y revisar si es T o E
-load('CarA09E.mat')
+load('LaplaceA09E.mat');
 fs = 250;
 
-signals_filtradas = bandpass(car, [8 30], fs);
+signals_filtradas = bandpass(laplace_c3_c4, [8 30], fs);
 
 %cambiar el 01 por el numero de sujeto y revisar si es T o E
-save('FiltradasA09E.mat','signals_filtradas');
+save('FiltraLaplaceA09E.mat','signals_filtradas');
 
 % % Esto es para graficar la diferencia de la senal y sus espectros con FFT
 % subplot(2,1,1);

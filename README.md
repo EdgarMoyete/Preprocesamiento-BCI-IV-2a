@@ -1,8 +1,9 @@
 # Preprocesamiento-BCI-IV-2a
 ## El preprocesamiento es el siguiente:
-Subconjunto4segMI.m --> ReemplazarNaNMediana.m --> FiltroPasaBanda.m --> AcomodarDatos.m
+Subconjunto4segMI.m --> ReemplazarNaNFiltroMediana.m --> CAR.m o FiltroLaplaciano.m --> FiltroPasaBanda.m --> AcomodarDatos.m
 
 ### Subconjunto4segMI.m
+Obtener los 4 segundos de imagen motora (del 2 al 6)
 * Input: (AxxX.gdf)
 * Output: (MotorImageryAxxX.mat) donde estan los 4seg de MI-EEG, 288 muestras de 22 canales 4seg a 250Hz
 * Input Shape: todox25
@@ -10,17 +11,32 @@ Subconjunto4segMI.m --> ReemplazarNaNMediana.m --> FiltroPasaBanda.m --> Acomoda
 
 Se necesita ejecutar biosig_installer.m
 
-### ReemplazarNaNMediana.m
+### ReemplazarNaNFiltroMediana.m
+Reemplazar NaN por los valores obtenidos con el filtro mediana
 * Input: (MotorImageryAxxX.mat)
 * Output: (LimpiosAxxX.mat)
 * Input Shape: 288000x22
 * Output Shape: 288000x22
 
+### CAR.m
+Referencia CAR (common average reference)
+* Input: (LimpiosAxxX.mat)
+* Output: (CarAxxX.mat)
+* Input shape: 288000x22
+* Output shape: 288000x22
+
+### FiltroLaplaciano.m
+Filtro espacial laplaciano para dos canales C3 y C4
+* Input: (LimpiosAxxX.mat)
+* Output: (LaplaceAxxX.mat)
+* Input shape: 288000x22
+* Output shape: 288000x2
+
 ### FiltroPasaBanda.m
 Filtro FIR pasa banda de 8Hz-30Hz
 
-* Input: (LimpiosAxxX.mat)
-* Output: (FiltradasxxX.mat)
+* Input: (CarAxxX.mat)
+* Output: (FiltradasAxxX.mat)
 * Input shape: 288000x22
 * Output shape: 288000x22
 
@@ -29,9 +45,30 @@ Acomodar los datos para que queden concatenados los canales
 
 * Input: (FiltradasxxX.mat)
 * Output: (MI-EEG-AxxX.csv) es para el entrenamiento de los modelos
-* Output: (MI-EEG-AxxX.mat) es para DWT
+* Output: (MI-EEG-AxxX.mat) es para DWT y para la clasificacion binaria
 * Input shape: 288000x22
 * Output shape: 288x22000
+
+Las filas son el numero de muestras (288) y las columnas son los 4 seg de los 22 canales concatenados (22000)
+
+### AcomodarDatosLaplace.m
+Acomodar los datos para que queden concatenados los canales
+
+* Input: (FiltraLaplaceAxxX.mat)
+* Output: (MI-EEG-Laplace-AxxX.csv) es para el entrenamiento de los modelos
+* Output: (MI-EEG-Laplace-AxxX.mat) es para DWT y para la clasificacion binaria
+* Input shape: 288000x2
+* Output shape: 288x2000
+
+Las filas son el numero de muestras (288) y las columnas son los 4 seg de los 2 canales concatenados (2000)
+
+### AcomodarDatosBinaria.m
+Acomodar los datos para que queden concatenados los canales
+
+* Input: (MI-EEG-AxxX.mat), (AxxX.mat)
+* Output: (MI-EEG-ID-AxxX.csv) es para el entrenamiento de los modelos, (Etiquetas-ID-AxxX.csv)
+* Input shape: 288x22000
+* Output shape: 144x22000
 
 Las filas son el numero de muestras (288) y las columnas son los 4 seg de los 22 canales concatenados (22000)
 
@@ -58,6 +95,11 @@ Obtener los coeficientes de aproximacion y de detalle con DWT-db4 con 2 niveles 
 * Output: (MI-EEG-DWT-Coef-AxxX.csv)
 * Input shape: 288x22000
 * Output shape: 288x22286
+
+#### Otros
+* ContarNaN.m
+* PruebasFFT.m
+* Ventaneo.m
 
 #### Archivos que no se ocupan
 * Filtro32Hz.m
